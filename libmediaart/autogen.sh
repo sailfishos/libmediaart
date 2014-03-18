@@ -8,7 +8,8 @@ test -n "$srcdir" || srcdir=.
   cd "$srcdir" &&
   touch ChangeLog && # Required by automake.
   (test -d m4 || mkdir m4) && # Required by gtkdocize
-  gtkdocize &&
+  #gtkdocize &&
+  echo "EXTRA_DIST = missing-gtk-doc" > gtk-doc.make
   autoreconf --verbose --force --install
 ) || exit
 
