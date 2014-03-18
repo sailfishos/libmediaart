@@ -21,7 +21,7 @@ BuildRequires:  vala-tools
 
 %build
 %autogen --disable-static --enable-nemo
-make %{?jobs:-j%jobs}
+make %{?jobs:-j%jobs} V=1
 
 %install
 rm -rf %{buildroot}
