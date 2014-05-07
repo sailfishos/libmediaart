@@ -12,9 +12,9 @@ AC_PREREQ([2.64])
 # if backwards compatibility has been broken,
 # set LIBMEDIAART_BINARY_AGE and LIBMEDIAART_INTERFACE_AGE to 0.
 m4_define([libmediaart_major_version], [0])
-m4_define([libmediaart_minor_version], [3])
+m4_define([libmediaart_minor_version], [4])
 m4_define([libmediaart_micro_version], [0])
-m4_define([libmediaart_interface_age], [0])
+m4_define([libmediaart_interface_age], [4])
 m4_define([libmediaart_binary_age],
           [m4_eval(100 * libmediaart_minor_version + libmediaart_micro_version)])
 m4_define([libmediaart_version],
@@ -246,7 +246,7 @@ if test "x$enable_qt" != "xno" && test "x$enable_gdkpixbuf" != "xyes"; then
 
          AC_DEFINE(HAVE_QT4, [], [Define if we have Qt4])
          AC_DEFINE(HAVE_QT, [], [Define if we have Qt])
-         LIBMEDIAART_BACKEND=Qt4Gui
+         LIBMEDIAART_BACKEND=QtGui
 
          selected_for_media_art="yes (qt4)"
       fi
