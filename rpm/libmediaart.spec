@@ -1,6 +1,6 @@
 Name:       libmediaart
 Summary:    Library for handling media art
-Version:    0.3.0
+Version:    0.4.0
 Release:    1
 Group:      System/Libraries
 License:    GPLv2
