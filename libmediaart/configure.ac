@@ -12,9 +12,9 @@ AC_PREREQ([2.64])
 # if backwards compatibility has been broken,
 # set LIBMEDIAART_BINARY_AGE and LIBMEDIAART_INTERFACE_AGE to 0.
 m4_define([libmediaart_major_version], [0])
-m4_define([libmediaart_minor_version], [4])
+m4_define([libmediaart_minor_version], [5])
 m4_define([libmediaart_micro_version], [0])
-m4_define([libmediaart_interface_age], [4])
+m4_define([libmediaart_interface_age], [0])
 m4_define([libmediaart_binary_age],
           [m4_eval(100 * libmediaart_minor_version + libmediaart_micro_version)])
 m4_define([libmediaart_version],
@@ -96,17 +96,7 @@ AC_SUBST(LT_REVISION)
 AC_SUBST(LT_AGE)
 AC_SUBST(LT_CURRENT_MINUS_AGE)
 
-# Checks for programs.
-AC_PROG_CXX
-AC_PROG_AWK
-AC_PROG_CC
-AC_PROG_CPP
-AC_PROG_INSTALL
-AC_PROG_LN_S
-AC_PROG_MAKE_SET
-AC_PROG_RANLIB
-AC_PROG_MKDIR_P
-AC_PROG_YACC
+IDT_COMPILE_WARNINGS
 
 # Initialize libtool
 LT_PREREQ([2.2])
@@ -121,23 +111,25 @@ AC_PROG_INSTALL
 AC_PROG_LN_S
 AC_PROG_MAKE_SET
 AC_PROG_RANLIB
+AC_PROG_MKDIR_P
+AC_PROG_YACC
 
 # Checks for libraries.
 
 # Checks for header files.
-AC_CHECK_HEADERS([stdlib.h string.h unistd.h utime.h])
+AC_CHECK_HEADERS([stdlib.h string.h utime.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
+AC_C_INLINE
 AC_TYPE_SIZE_T
 
 # Checks for library functions.
-AC_CHECK_FUNCS([strstr utime])
-
+AC_CHECK_FUNCS([setenv strstr utime])
 
 CFLAGS="$CFLAGS"
 
 # Library required versions
-GLIB_REQUIRED=2.35.1
+GLIB_REQUIRED=2.38.0
 GDKPIXBUF_REQUIRED=2.12.0
 QT5_REQUIRED=5.0.0
 QT4_REQUIRED=4.7.1
@@ -150,6 +142,9 @@ PKG_CHECK_MODULES(LIBMEDIAART, [$LIBMEDIAART_REQUIRED])
 
 GLIB_GENMARSHAL=`$PKG_CONFIG glib-2.0 --variable=glib_genmarshal`
 AC_SUBST(GLIB_GENMARSHAL)
+
+GLIB_PREFIX="`$PKG_CONFIG --variable=prefix glib-2.0`"
+AC_SUBST(GLIB_PREFIX)
 
 ####################################################################
 # General CFLAGS/LIBS
