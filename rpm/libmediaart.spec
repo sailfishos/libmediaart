@@ -50,3 +50,4 @@ rm -rf %{buildroot}
 %{_libdir}/libmediaart-1.0.so
 %{_includedir}/libmediaart-1.0
 %{_datadir}/gir-1.0/MediaArt-1.0.gir
+%{_datadir}/vala/vapi/libmediaart-1.0.vapi
