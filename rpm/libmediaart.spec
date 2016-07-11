@@ -1,6 +1,6 @@
 Name:       libmediaart
 Summary:    Library for handling media art
-Version:    0.4.0
+Version:    1.9.0
 Release:    1
 Group:      System/Libraries
 License:    GPLv2
@@ -41,13 +41,14 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,-)
-%{_libdir}/libmediaart-1.0.so.*
-%{_libdir}/girepository-1.0/MediaArt-1.0.typelib
+%{_libdir}/libmediaart-2.0.so.*
+%{_libdir}/girepository-1.0/MediaArt-2.0.typelib
 
 %files devel
 %defattr(-,root,root,-)
-%{_libdir}/pkgconfig/libmediaart-1.0.pc
-%{_libdir}/libmediaart-1.0.so
-%{_includedir}/libmediaart-1.0
-%{_datadir}/gir-1.0/MediaArt-1.0.gir
-%{_datadir}/vala/vapi/libmediaart-1.0.vapi
+%{_libdir}/pkgconfig/libmediaart-2.0.pc
+%{_libdir}/libmediaart-2.0.so
+%{_includedir}/libmediaart-2.0
+%{_datadir}/gir-1.0/MediaArt-2.0.gir
+%{_datadir}/vala/vapi/libmediaart-2.0.vapi
+
