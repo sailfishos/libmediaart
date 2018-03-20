@@ -1,6 +1,6 @@
 Name:       libmediaart
 Summary:    Library for handling media art
-Version:    1.9.0
+Version:    1.9.4
 Release:    1
 Group:      System/Libraries
 License:    GPLv2
@@ -12,6 +12,7 @@ BuildRequires:  pkgconfig(Qt5Gui)
 BuildRequires:  gobject-introspection-devel >= 1.36
 BuildRequires:  vala-devel
 BuildRequires:  vala-tools
+BuildRequires:  meson
 
 %description
 %{summary}.
@@ -25,15 +26,14 @@ Requires: %{name} = %{version}-%{release}
 Files for development with %{name}.
 
 %prep
-%setup -q -n %{name}-%{version}/%{name}
+%setup -q -n %{name}-%{version}/upstream
 
 %build
-%autogen --disable-static --enable-nemo --enable-qt=yes
-make %{?jobs:-j%jobs} V=1
+%meson -Dwith-docs=no -Dimage_library=qt5
+%meson_build
 
 %install
-rm -rf %{buildroot}
-%make_install
+%meson_install
 
 %post -p /sbin/ldconfig
 
@@ -51,4 +51,5 @@ rm -rf %{buildroot}
 %{_includedir}/libmediaart-2.0
 %{_datadir}/gir-1.0/MediaArt-2.0.gir
 %{_datadir}/vala/vapi/libmediaart-2.0.vapi
+%{_datadir}/vala/vapi/libmediaart-2.0.deps
 
