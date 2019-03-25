@@ -1,3 +1,3 @@
 [submodule "upstream"]
 	path = upstream
-	url = https://gitlab.gnome.org/GNOME/libmediaart.git
+	url = https://git.merproject.org/mirror/libmediaart.git
