@@ -2,7 +2,6 @@ Name:       libmediaart
 Summary:    Library for handling media art
 Version:    1.9.4
 Release:    1
-Group:      System/Libraries
 License:    GPLv2
 URL:        https://git.gnome.org/browse/libmediaart
 Source0:    %{name}-%{version}.tar.gz
@@ -14,19 +13,20 @@ BuildRequires:  vala-devel
 BuildRequires:  vala-tools
 BuildRequires:  meson
 
+Patch0: 0001-Fix-Qt5-backend-crashing-when-running-in-Qt-applicat.patch
+
 %description
 %{summary}.
 
 %package devel
 Summary: Development package for libmediaart
-Group: Development/Libraries
 Requires: %{name} = %{version}-%{release}
 
 %description devel
 Files for development with %{name}.
 
 %prep
-%setup -q -n %{name}-%{version}/upstream
+%autosetup -p1 -n %{name}-%{version}/upstream
 
 %build
 %meson -Dwith-docs=no -Dimage_library=qt5
@@ -52,4 +52,3 @@ Files for development with %{name}.
 %{_datadir}/gir-1.0/MediaArt-2.0.gir
 %{_datadir}/vala/vapi/libmediaart-2.0.vapi
 %{_datadir}/vala/vapi/libmediaart-2.0.deps
-
