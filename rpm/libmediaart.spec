@@ -1,6 +1,6 @@
 Name:       libmediaart
 Summary:    Library for handling media art
-Version:    1.9.5
+Version:    1.9.6
 Release:    1
 License:    LGPLv2+
 URL:        https://git.gnome.org/browse/libmediaart
@@ -38,13 +38,11 @@ Files for development with %{name}.
 %postun -p /sbin/ldconfig
 
 %files
-%defattr(-,root,root,-)
 %{_libdir}/libmediaart-2.0.so.*
 %{_libdir}/girepository-1.0/MediaArt-2.0.typelib
 %license COPYING.LESSER
 
 %files devel
-%defattr(-,root,root,-)
 %{_libdir}/pkgconfig/libmediaart-2.0.pc
 %{_libdir}/libmediaart-2.0.so
 %{_includedir}/libmediaart-2.0
